@@ -1,4 +1,4 @@
 ## Animals Classifier App
 
 
-[![Animals Classifier App](img/app.png)]
+![Animals Classifier App](img/app.png)
