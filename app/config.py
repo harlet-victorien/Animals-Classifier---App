@@ -4,7 +4,7 @@ from globals import COLORS
 def configure_page():
     """Configure Streamlit page settings"""
     st.set_page_config(
-        page_title="Investment Analyzer Dashboard",
+        page_title="Dashboard",
         page_icon="📈",
         layout="wide",
         initial_sidebar_state="expanded"

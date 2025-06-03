@@ -156,6 +156,14 @@ def create_model_inference():
             st.write(f"**Image mode:** {current_image.mode}")
             
             # Show resized image
+            # Crop to square by taking the center crop of the smaller dimension
+            width, height = current_image.size
+            min_dim = min(width, height)
+            left = (width - min_dim) // 2
+            top = (height - min_dim) // 2
+            right = left + min_dim
+            bottom = top + min_dim
+            current_image = current_image.crop((left, top, right, bottom))
             resized_image = current_image.resize((32, 32))
             st.image(resized_image, caption="Resized Image (32x32)", width=150)
     

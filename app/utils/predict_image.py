@@ -57,6 +57,16 @@ def preprocess_image(image_path):
         transforms.Normalize((0.5, 0.5, 0.5), (0.5, 0.5, 0.5))
     ])
     image = Image.open(image_path).convert('RGB')
+    
+    # Crop to square by taking the center crop of the smaller dimension
+    width, height = image.size
+    min_dim = min(width, height)
+    left = (width - min_dim) // 2
+    top = (height - min_dim) // 2
+    right = left + min_dim
+    bottom = top + min_dim
+    image = image.crop((left, top, right, bottom))
+    
     image = transform(image)
     image = image.unsqueeze(0)  # Add batch dimension
     return image
